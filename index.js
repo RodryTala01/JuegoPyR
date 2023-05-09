@@ -27,3 +27,24 @@ function crearJugadores() {
     }
   }
   
+
+function animarBoton() {
+  var boton = document.getElementById("botonPlay");
+  var boton2 = document.getElementById("botonPlay2");
+  var nroJugadores = document.getElementById("nroDeJugadores")
+  
+  boton.style.display = "none";
+  boton2.style.display ="block";
+  boton2.style.cursor = "pointer";
+
+  setTimeout(function() {
+    boton2.style.transform = "scale(25)";
+    boton2.style.backgroundColor = "rgb(177, 4, 4)";
+  }, 100);
+  boton2.style.transition = "transform 3s ease-in-out";
+
+  setTimeout(function() {
+    boton2.style.display = "none";
+    nroJugadores.style.display = "none";
+  }, 3000);
+}

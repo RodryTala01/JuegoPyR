@@ -12,6 +12,7 @@
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -25,15 +26,18 @@
 
   <main>
 
-    <div class="nroJugadores">
+    <div class="nroJugadores" id="nroDeJugadores">
       <label for="nroJugadores">Ingrese número de jugadores: </label>
       <input type="text" name="nroJugadores" id="nroJugadores" class="ms-3 inputNroJugadores" required
         autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onkeyup="crearJugadores()" maxlength="1">
     </div>
 
     <div class="jugadores" id="jugadores">
+
+    <div class="botonPlay" id="botonPlay" onclick="animarBoton()"></div>
+    <div class="botonPlay2" id="botonPlay2" onclick="animarBoton()"></div>
       
-    </div>
+    </div> 
 
   </main>
 

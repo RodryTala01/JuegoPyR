@@ -63,3 +63,64 @@ input:focus {
     border: none;
     background-color: rgb(177, 4, 4);
 }
+
+.botonPlay {
+    width: 4.8rem;
+    height: 60px;
+    background: #ff0000;
+    position: relative;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    margin: auto;
+    box-shadow: 0px 0px 2px rgb(255, 255, 255);
+  }
+  
+  .botonPlay::before{
+    font-family: 'FontAwesome';
+    content: "\f04b";
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left:53%;
+    transform: translate(-50%, -50%);
+    transition: all .5s ease-in-out;
+  }
+  
+  .botonPlay:hover::before{
+    top: -30px;
+  }
+  
+  .botonPlay::after {
+    content: 'JUGAR';
+    color: white;
+    font-family: 'VT323', monospace;
+    font-size: 2rem;
+    position: absolute;
+    top: 150%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    transition: all .5s ease-in-out;
+  }
+  
+  .botonPlay:hover::after {
+    top: 50%;
+  }
+    
+  .botonPlay2 {
+    display: none;
+    width: 4.8rem;
+    height: 60px;
+    background: #ff0000;
+    position: relative;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    margin: auto;
+    box-shadow: 0px 0px 2px rgb(255, 255, 255);
+    transform: scale(1);
+    
+  }
