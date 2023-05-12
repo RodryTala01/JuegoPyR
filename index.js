@@ -21,6 +21,7 @@ function crearJugadores() {
       input.setAttribute("type", "text");
       input.setAttribute("id", `jugador${i+1}, inputJugador`);
       input.setAttribute("class", "inputJugador");
+      
 
       input.addEventListener("input", () => {
         // Verificamos si todos los campos de entrada han sido llenados
@@ -72,8 +73,33 @@ function animarBoton() {
     boton2.style.display = "none";
     nroJugadores.style.display = "none";
     eldiv.style.display = "none";
+
+    window.onload = comenzarJuego()
   }, 3000);
 
 
 }
 
+function comenzarJuego() {
+  var inputs = document.getElementsByClassName("inputJugador");
+  var nombresJugadores = [];
+  for (var i = 0; i < inputs.length; i++) {
+    nombresJugadores.push(inputs[i].value);
+  }
+
+  var cantidadJugadores = nombresJugadores.length;
+  var nroDelJugadorQueJuega = Math.floor(Math.random() * cantidadJugadores);
+  var nombreDeljugadorQueJuega = nombresJugadores[nroDelJugadorQueJuega].toUpperCase();
+
+  var divJugadorQueEmpieza = document.getElementById("jugadorQueEmpieza");
+
+  setTimeout(function() {
+    divJugadorQueEmpieza.style.transform = "scale(1)";
+  }, 100);
+  divJugadorQueEmpieza.style.transition = "transform 3s";
+
+  divJugadorQueEmpieza.innerHTML = "Comienza respondiendo " + nombreDeljugadorQueJuega + ". <br>QUE NADIE TE ESPÍE";
+
+  divJugadorQueEmpieza.classList.add('mostrar');
+
+}

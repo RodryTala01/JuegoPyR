@@ -129,3 +129,23 @@ input:focus {
   transform: scale(1);
 
 }
+
+.jugadorQueEmpieza {
+  font-family: 'VT323', monospace;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18%;
+  margin-bottom: 1rem;
+  /* Define el tamaño inicial */
+  transform: scale(0);
+  /* Define la duración de la transición */
+  transition: transform 1s;
+}
+
+
+.jugadorQueEmpieza.mostrar {
+  /* Define el tamaño final */
+  transform: scale(1);
+}
