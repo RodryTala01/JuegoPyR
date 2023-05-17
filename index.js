@@ -82,6 +82,7 @@ function animarBoton() {
 
 function comenzarJuego() {
   var inputs = document.getElementsByClassName("inputJugador");
+  var pregunta1 = document.getElementById("pregunta1");
   var nombresJugadores = [];
   for (var i = 0; i < inputs.length; i++) {
     nombresJugadores.push(inputs[i].value);
@@ -99,7 +100,53 @@ function comenzarJuego() {
   divJugadorQueEmpieza.style.transition = "transform 3s";
 
   divJugadorQueEmpieza.innerHTML = "Comienza respondiendo " + nombreDeljugadorQueJuega + ". <br>QUE NADIE TE ESPÍE";
-
+  
   divJugadorQueEmpieza.classList.add('mostrar');
 
+  setTimeout(function() {
+    divJugadorQueEmpieza.style.transform = "scale(0)";
+    divJugadorQueEmpieza.style.transition = "transform 1.4s";
+    
+    
+  }, 4000);
+  
+  setTimeout(function() {
+    var pregunta1 = document.getElementById("pregunta1");
+    pregunta1.style.display = "block";
+    pregunta1.style.left = "50%";
+  }, 6000);
+  
+  
+
+  
 }
+
+
+
+var opciones = document.getElementsByClassName("opcion");
+var seleccionada = null;
+
+
+for (var i = 0; i < opciones.length; i++) {
+  opciones[i].addEventListener("click", function() {
+    if (seleccionada) {
+      seleccionada.classList.remove("seleccionada");
+    }
+    this.classList.add("seleccionada");
+    seleccionada = this;
+  });
+}
+
+document.getElementById("btn-continuar").addEventListener("click", function() {
+  if (seleccionada === null) {
+    alert("Debes seleccionar una opción");
+  } else {
+    var resultadoTexto = document.getElementById("resultado-texto");
+    resultadoTexto.innerText = "Has elegido el color " + seleccionada.textContent.trim() + ".";
+    document.getElementById("pregunta-container").style.display = "none";
+    document.getElementById("resultado-container").style.display = "block";
+  }
+});
+
+
+  
