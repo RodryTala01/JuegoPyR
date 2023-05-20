@@ -25,23 +25,30 @@
 
 
   <main>
-
-    <div class="nroJugadores" id="nroDeJugadores">
-      <label for="nroJugadores">Ingrese número de jugadores: </label>
-      <input type="text" name="nroJugadores" id="nroJugadores" class="ms-3 inputNroJugadores" required
-        autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" onkeyup="crearJugadores()"
-        maxlength="1">
-    </div>
+    <div class="containerNroJugadores">
+      <div class="nroJugadores" id="nroDeJugadores">
+        <label for="nroJugadores">Ingrese número de jugadores: </label>
+        <input type="text" name="nroJugadores" id="nroJugadores" class="ms-3 inputNroJugadores" required
+          autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+          onkeyup="crearJugadores()" maxlength="1">
+      </div>
+    
 
     <div class="jugadores" id="jugadores"></div>
 
+  
+
     <div class="botonPlay" id="botonPlay" onclick="animarBoton()"></div>
     <div class="botonPlay2" id="botonPlay2" onclick=""></div>
+    
+  
 
     <div id="jugadorQueEmpieza" class="jugadorQueEmpieza"></div>
 
-    <div class="pregunta1" id="pregunta1">
-      <div id="pregunta-container">
+  </div>
+
+    <div class="container">
+      <div class="pregunta1 hidden" id="pregunta1">
         <h1 class="mb-5 textoPregunta">¿Cuál de estos colores preferís?</h1>
         <div id="opciones">
           <button class="opcion fondoAzul" value="a">AZUL</button>
@@ -51,13 +58,14 @@
           <button class="opcion fondoRosa" value="e">ROSA</button>
           <button class="opcion fondoNegro" value="f">NEGRO</button>
         </div>
-        <button id="btn-continuar">SIGUIENTE</button>
-      </div>
-      <div id="resultado-container">
-        <h2>Resultado</h2>
-        <p id="resultado-texto"></p>
+        <div class="divBtnContinuar"><button id="btn-continuar" class="btn-continuar">SIGUIENTE</button></div>
       </div>
     </div>
+    <!--<div id="resultado-container">
+        <h2>Resultado</h2>
+        <p id="resultado-texto"></p>
+      </div>-->
+
 
   </main>
 
