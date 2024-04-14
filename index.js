@@ -110,17 +110,31 @@ function comenzarJuego() {
 
 
   setTimeout(function () {
-    divJugadorQueEmpieza.style.transform = "scale(0)";
+    divJugadorQueEmpieza.style.transform = "translate(0%, -200%) scale(0.4)";
     divJugadorQueEmpieza.style.transition = "transform 1.4s";
     pregunta1.style.display = "block";
   }, 4000);
 
 
-  var pregunta1 = document.querySelector(".pregunta1");
-  
-  setTimeout(function() {
+  var pregunta1 = document.getElementById("pregunta1");
+
+  setTimeout(function () {
     pregunta1.classList.add("mostrar");
   }, 5400);
+}
+
+function siguiente(numPregunta) {
+  var pregunta = document.getElementById("pregunta" + numPregunta);
+  var preguntaAnt = document.getElementById("pregunta" + (numPregunta - 1));
+
+  preguntaAnt.classList.add("hiddenSig");
+  preguntaAnt.classList.remove("mostrar");
+
+  setTimeout(function () {
+    pregunta.classList.remove("hidden");
+    pregunta.style.display = "block";
+    pregunta.classList.add("mostrar");
+  }, 1000);
 }
 
 
@@ -138,15 +152,31 @@ for (var i = 0; i < opciones.length; i++) {
   });
 }
 
+var respuestas = [];
+
 document.getElementById("btn-continuar").addEventListener("click", function () {
+  // Obtener la opción seleccionada
+  var seleccionada = document.querySelector('.opcion.active');
+
   if (seleccionada === null) {
-    alert("Debes seleccionar una opción");
+    alert("Selecciona una opción");
   } else {
-    var resultadoTexto = document.getElementById("resultado-texto");
-    resultadoTexto.innerText = "Has elegido el color " + seleccionada.textContent.trim() + ".";
-    document.getElementById("pregunta1").style.display = "none";
-    document.getElementById("resultado-container").style.display = "block";
+    // Agregar la respuesta seleccionada a la lista
+    respuestas.push(seleccionada.textContent.trim());
+
+    // Puedes hacer algo con la lista de respuestas aquí
+    console.log("Respuestas almacenadas:", respuestas);
   }
 });
 
+// Añadir clase 'active' al hacer clic en un botón de opción
+var botonesOpcion = document.querySelectorAll('.opcion');
+botonesOpcion.forEach(function (boton) {
+  boton.addEventListener('click', function () {
+    botonesOpcion.forEach(function (b) {
+      b.classList.remove('active');
+    });
+    boton.classList.add('active');
+  });
+});
 

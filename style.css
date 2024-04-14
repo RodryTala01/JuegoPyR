@@ -86,7 +86,7 @@
     font-family: 'FontAwesome';
     content: "\f04b";
     font-size: 40px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     position: absolute;
     top: 50%;
     left: 53%;
@@ -240,35 +240,29 @@
 
 
 
-  .container {
-    position: relative;
-    height: 100%;
-  }
+.pregunta1 {
+  position: fixed;
+  top: 50%;
+  left: 150%;
+  /* Cambiado para que inicialmente esté fuera de la pantalla */
+  transform: translate(-50%, -50%);
+  transition: all 2s ease;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-  .pregunta1 {
-    position: fixed;
-    top: 50%;
-    left: 150%;
-    transform: translate(-50%, -50%);
-    transition: all 2s ease;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+.hidden {
+  display: none;
+}
 
-  .hidden {
-    display: none;
-  }
-  
-  .mostrar {
-    left: 50%;
-    opacity: 1;
-  } 
+.hiddenSig {
+  transform: translate(-500%, -50%);
+  transition: all 2s ease;
+}
 
-  .containerNroJugadores {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-  }
+.mostrar {
+  left: 50%;
+  /* Aparecerá en el centro */
+  opacity: 1;
+}
